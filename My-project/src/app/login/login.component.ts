@@ -27,7 +27,10 @@ export class LoginComponent implements OnInit {
     let givenPassword: string =this.myform.controls.password.value
     if(givenName == this.defaultName &&  givenPassword == this.defaultPass){
       this.isUserLoggedInService.setUserloggedIn(true);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard',givenName]);
+    }
+    else{
+      alert("Please enter valid credential");
     }
   }
 }

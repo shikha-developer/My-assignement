@@ -6,6 +6,7 @@ import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent,canActivate:[OnlyLoggedInUsersGuard] },
+  { path: 'dashboard/:name', component: DashboardComponent,canActivate:[OnlyLoggedInUsersGuard] },
   { path: 'login', component: LoginComponent},
   { path: '', component:LoginComponent} 
 

@@ -1,16 +1,17 @@
-
 <div class="login-container">
   <div class="login-heading">
     <h1 class="login-text">Welcome to westPac </h1>
-      <form [formGroup]="myform" (ngSubmit) = "onClickSubmit()" >
+    <div class="form-container">
+      <form [formGroup]="myform" (ngSubmit)="onClickSubmit()">
         <label>User Name:</label>
-   <input type = "text"  formControlName="userName" >
-   <br/>
-    <label>password:</label>
-   <input type = "password"  formControlName="password">
-   <br/>
-   <input type = "submit" value = "submit" [disabled]="myform.invalid">
-</form>
+        <input type="text" formControlName="userName">
+        <br />
+        <label>password:</label>
+        <input type="password" formControlName="password">
+        <br />
+        <input type="submit" value="submit" [disabled]="myform.invalid">
+      </form>
+    </div>
   </div>
 
 </div>
