@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { isUserLoggedInService } from './isUserLoggedIn.service';
 import { Router } from '@angular/router';
 
-
-
 @Injectable()
 export class OnlyLoggedInUsersGuard implements CanActivate { 
   logIn = true;

@@ -8,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  userName = "shikha";
+  userName:string;
   constructor(private route: ActivatedRoute) {
-        this.route.params.subscribe( params => this.userName = params.name );
-
    }
 
   ngOnInit() {
-  }
+    this.userName= this.route.snapshot.params["name"] ;
+    }
 
 }

@@ -7,14 +7,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module'
 import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
-import { isUserLoggedInService } from './isUserLoggedIn.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ErrorPageComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { isUserLoggedInService } from './isUserLoggedIn.service';
     AppRoutingModule ,
     ReactiveFormsModule
   ],
-  providers: [OnlyLoggedInUsersGuard,isUserLoggedInService],
+  providers: [OnlyLoggedInUsersGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

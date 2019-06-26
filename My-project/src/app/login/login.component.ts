@@ -1,11 +1,8 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder  } from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { isUserLoggedInService } from '../isUserLoggedIn.service'
-import { interval, Observable } from 'rxjs';
-import { take, map } from 'rxjs/operators';
-import {fromEvent} from 'rxjs';
-import { matchingPassword } from './validators/matching-passwords.validators';
+import { matchingPassword } from '../sign-up/validators/matching-passwords.validators';
 
 
 @Component({
@@ -16,60 +13,37 @@ import { matchingPassword } from './validators/matching-passwords.validators';
 export class LoginComponent implements OnInit {
 
 
-  defaultName : string= "shikha";
-  defaultPass : string= "test@1234";
-   myform : FormGroup;
-  constructor(private elementRef: ElementRef,
+  defaultName: string = "shikha";
+  defaultPass: string = "test@1234";
+  myform: FormGroup;
+  constructor(
     private router: Router,
     private isUserLoggedInService: isUserLoggedInService,
-    private formBuilder: FormBuilder)
-     {
-    
-     }  
-  
+    private formBuilder: FormBuilder) {
+  }
 
-  ngOnInit(){
+
+  ngOnInit() {
     this.myform = this.formBuilder.group({
       userName: new FormControl('', Validators.required),
-      password: new FormControl( '',Validators.required),
-      confirmPassword: new FormControl('',Validators.required)
-    },
-    {
-      validator: matchingPassword('password', 'confirmPassword')
+      password: new FormControl('', Validators.required)
     })
-     
-  // const number = interval(1000);
-  //  // .subscribe(value => 
- 
-  // let c=number.pipe(take(3),map(((x,i)=>"jswd")) );
-  // c.subscribe(x=>console.log("sh"+x) );
-  //   // .pipe(
-  //   //   take(3),type
-
-  //   // )
-  //   fromEvent(this.elementRef.nativeElement,"click").subscribe(value => console.log(value)) 
   }
-  passwordMatch(password : FormControl,passwordMatch : FormControl){
-    if(password.value === passwordMatch.value){
-      passwordMatch.setErrors(null); 
-    }
-    else{
-      passwordMatch.setErrors({passwordMustMatch:true}); 
-    }
-  }
-  
-  onClickSubmit(event) {
-   
 
-    console.log(this.myform.controls.userName);
-    let givenName :string = this.myform.controls.userName.value;
-    let givenPassword: string =this.myform.controls.password.value
-    if(givenName == this.defaultName &&  givenPassword == this.defaultPass){
+
+  onClickSubmit() {
+    let givenName: string = this.myform.controls.userName.value;
+    let givenPassword: string = this.myform.controls.password.value
+    if (givenName == this.defaultName && givenPassword == this.defaultPass) {
       this.isUserLoggedInService.setUserloggedIn(true);
-      this.router.navigate(['/dashboard',givenName]);
+      this.router.navigate(['/dashboard', givenName]);
     }
-    else{
+    else {
       alert("Please enter valid credential");
     }
+  }
+  onClickSignUp(){
+    this.router.navigate(['/signup']);
+
   }
 }

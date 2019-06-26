@@ -1,0 +1,25 @@
+<div class="signUp-container">
+    <div class="signUp-heading">
+      <h1 class="signUp-text">Welcome to westPac </h1>
+      <div class="form-container">
+        <form [formGroup]="signupform" class="form-group"(ngSubmit)="onClickSubmit()">
+          <label>User Name:</label>
+          <input type="text" formControlName="userName">
+          <br />
+          <label>password:</label>
+          <input type="password" formControlName="password">
+          <br />
+          <label>Confirm password:</label>
+          <input type="password" #confirmPassword formControlName="confirmPassword">
+          <p *ngIf="confirmPassword.errors">Password must be matched</p>
+  
+          <br/>
+          <input type="submit" value="submit" [disabled]="signupform.invalid">
+          
+        </form>
+        
+       
+      </div>
+    </div>
+  
+  </div>

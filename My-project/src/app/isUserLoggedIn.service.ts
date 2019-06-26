@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, RootRenderer } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn:'root'
+})
 
 export class isUserLoggedInService{
     userLogIn = false;
