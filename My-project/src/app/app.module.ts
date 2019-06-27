@@ -4,11 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module'
 import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
+import { MatButtonModule, MatInputModule,MatCardModule, MatFormFieldModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -23,7 +28,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule ,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule ,
+    MatInputModule,
+     MatButtonModule,
+     MatCardModule, 
+      MatFormFieldModule
   ],
   providers: [OnlyLoggedInUsersGuard],
   bootstrap: [AppComponent]

@@ -12,7 +12,9 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
-      providers:[{provide:ActivatedRoute,useClass: activatedRouteMock}]
+      providers:[
+        {provide:ActivatedRoute,useClass: activatedRouteMock}
+      ]
     })
     .compileComponents().then(()=>{
       fixture = TestBed.createComponent(DashboardComponent);
@@ -22,10 +24,10 @@ describe('DashboardComponent', () => {
   }));
 
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
-  fit('shoud rrender username property in html which is fetched from url',() => {
+  it('shoud rrender username property in html which is fetched from url',() => {
     
     fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
