@@ -33,7 +33,7 @@ export class SignUpComponent implements OnInit {
       })
   }
   onClickSubmit(){ 
-    let givenName: string = this.signupform.controls.userName.value;
+    let givenName: String = this.signupform.controls.userName.value;
     this.isUserLoggedInService.setUserloggedIn(true);
     this.router.navigate(['/dashboard', givenName]);
   }

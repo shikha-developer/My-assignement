@@ -11,8 +11,8 @@ import { AppRoutingModule } from './app-routing.module'
 import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { MymaterialModule } from './mymaterial.module';
 
-import { MatButtonModule, MatInputModule,MatCardModule, MatFormFieldModule } from '@angular/material';
 
 
 
@@ -30,10 +30,8 @@ import { MatButtonModule, MatInputModule,MatCardModule, MatFormFieldModule } fro
     AppRoutingModule ,
     ReactiveFormsModule,
     BrowserAnimationsModule ,
-    MatInputModule,
-     MatButtonModule,
-     MatCardModule, 
-      MatFormFieldModule
+    MymaterialModule
+   
   ],
   providers: [OnlyLoggedInUsersGuard],
   bootstrap: [AppComponent]

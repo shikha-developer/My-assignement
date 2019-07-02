@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 import { isUserLoggedInService } from '../isUserLoggedIn.service'
-import { matchingPassword } from '../sign-up/validators/matching-passwords.validators';
 
 
 @Component({
@@ -13,8 +12,8 @@ import { matchingPassword } from '../sign-up/validators/matching-passwords.valid
 export class LoginComponent implements OnInit {
 
 
-  defaultName: string = "shikha";
-  defaultPass: string = "test@1234";
+  defaultName: String = "shikha";
+  defaultPass: String = "test@1234";
   myform: FormGroup;
   constructor(
     private router: Router,
@@ -32,8 +31,8 @@ export class LoginComponent implements OnInit {
 
 
   onClickSubmit() {
-    let givenName: string = this.myform.controls.userName.value;
-    let givenPassword: string = this.myform.controls.password.value
+    let givenName: String = this.myform.controls.userName.value;
+    let givenPassword: String = this.myform.controls.password.value
     if (givenName == this.defaultName && givenPassword == this.defaultPass) {
       this.isUserLoggedInService.setUserloggedIn(true);
       this.router.navigate(['/dashboard', givenName]);

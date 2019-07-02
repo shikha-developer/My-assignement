@@ -8,9 +8,9 @@ import { DebugElement } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { By } from '@angular/platform-browser';
 
-class RouterMock {
-  navigate(a:[String, Object?]){
-    return a[0];
+const RouterMock =  {
+  navigate(){
+    return {};
   }
 }
 
@@ -32,8 +32,8 @@ describe('LoginComponent', () => {
         BrowserModule
       ],
       providers:[
-        {provide:Router, useClass : RouterMock },
-         isUserLoggedInService,
+        { provide:Router, useValue : RouterMock },
+         isUserLoggedInService
       ]
     })
     .compileComponents();

@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { ActivatedRoute } from '@angular/router';
-class activatedRouteMock {
-  snapshot = { params:{name:'testUser'}};
-}
+
+const d = { snapshot : { params:{name:'testUser'}} }
+
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
@@ -13,7 +13,7 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
       providers:[
-        {provide:ActivatedRoute,useClass: activatedRouteMock}
+        {provide:ActivatedRoute,useValue: d}
       ]
     })
     .compileComponents().then(()=>{
@@ -29,9 +29,7 @@ describe('DashboardComponent', () => {
   });
   it('shoud rrender username property in html which is fetched from url',() => {
     
-    fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain('testUser');
+    expect(component.userName).toBe('testUser');
   })
 });

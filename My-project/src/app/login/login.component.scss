@@ -1,5 +1,11 @@
 .login-container{
     padding-bottom:0;
+    background: blue;
+    color:white;
+    font-size: 20px;
+    .login-text.mat-card-header{
+      display: block;
+    }
   }
   .login-heading{
     background-color: lightblue;
