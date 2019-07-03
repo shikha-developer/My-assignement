@@ -1,36 +1,36 @@
-<mat-card class="login-container">
-    <mat-card-header class="login-text">
+<div class="login-container">
+    <div class="login-text">
         Please Login to WestPac
-    </mat-card-header>
-      <!-- <mat-card-content class="form-container"> -->
+    </div>
+      <div class="form-container">
         <form [formGroup]="myform" class="form-group" (ngSubmit)="onClickSubmit()">
             
-          <mat-form-field>
-          <!-- <label>User Name:</label> -->
-          <input matInput  placeholder = "User Name" type="text" formControlName="userName">
-        </mat-form-field>
+          <div>
+          <label>User Name:</label>
+          <input   placeholder = "User Name" type="text" formControlName="userName">
+        </div>
           <br />
-        <mat-form-field>
-          <!-- <label>password:</label> -->
-          <input matInput  placeholder = "Password"  type="password" formControlName="password">
-        </mat-form-field>
+        <div>
+          <label>password:</label>
+          <input   placeholder = "Password"  type="password" formControlName="password">
+        </div>
 
           <br />
-        <mat-form-field>
+        <div>
 
           <input     type="submit" value="submit" [disabled]="myform.invalid">
-        </mat-form-field>
+        </div>
 
         </form>
         <div class="sign-up-button">
           <span>New User?</span>
-          <button mat-raised-button (click)="onClickSignUp()">Sign Up</button>
+          <button  (click)="onClickSignUp()">Sign Up</button>
         </div>
-      <!-- </mat-card-content> -->
+      </div>
 
 
     
 
 
 
-</mat-card>
+</div>

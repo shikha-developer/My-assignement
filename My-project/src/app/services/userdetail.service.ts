@@ -14,4 +14,5 @@ export class UserdetailService {
   getUserDetails():Observable<UserDetailsConfig[]>{
     return this._http.get<UserDetailsConfig[]>(this.dataUrl);
   }
+  
 }
