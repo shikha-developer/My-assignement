@@ -12,6 +12,7 @@ import { matchingPassword } from './validators/matching-passwords.validators';
 })
 export class SignUpComponent implements OnInit {
   signupform: FormGroup;
+  formSubmitted : boolean;
 
   constructor(
     private router: Router,
@@ -24,15 +25,19 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.signupform = this.formBuilder.group({
-      userName: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required)
+      userName: ['', [Validators.required,Validators.minLength(6),Validators.pattern('\[a-zA-Z]+[0-9]+')]],
+      password: ['', [Validators.required,Validators.minLength(6)] ],
+      confirmPassword: ['', Validators.required]
     },
       {
         validator: matchingPassword('password', 'confirmPassword')
       })
   }
   onClickSubmit(){ 
+    this.formSubmitted = true;
+    if(this.signupform.invalid){
+      return;
+    }
     let givenName: String = this.signupform.controls.userName.value;
     this.isUserLoggedInService.setUserloggedIn(true);
     this.router.navigate(['/dashboard', givenName]);

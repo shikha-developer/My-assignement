@@ -1,8 +1,9 @@
 .login-container{
     padding-bottom:0;
-    background: blue;
+    background: orange;
     color:white;
     font-size: 20px;
+    text-align: center;
     .login-text.mat-card-header{
       display: block;
     }
@@ -15,18 +16,16 @@
    
   }
   .login-text{
-      text-align: center;
        padding:0;
   }
   .input-container{
     text-align: center;
    
   }
-  .form-container{
-    text-align: center;
-  }
  
   .sign-up-button{
     color:blue;
-   
   }
+  .invalid-field{
+    color:red;
+}

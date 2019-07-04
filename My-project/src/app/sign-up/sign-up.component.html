@@ -1,30 +1,50 @@
-
 <div class="signUp-container">
-    <div class="signUp-heading">
-      <mat-card class="signUp-text">Welcome to westPac </mat-card>
-      <div class="form-container">
-        <form [formGroup]="signupform" class="form-group"(ngSubmit)="onClickSubmit()">
-         
-            <label>User Name:</label>
-            <input type="text" formControlName="userName">
-        
-          <br />
-         
-          <label>password:</label>
-          <input type="password" formControlName="password">
-        <br />
-         
-          <label>Confirm password:</label>
-          <input type="password" #confirmPassword formControlName="confirmPassword">
-          <p *ngIf="confirmPassword.errors">Password must be matched</p>
-        <br/>
-          <button type="submit" value="submit" [disabled]="signupform.invalid">Submit</button>
-          
-        </form>
-        
-       
-      </div>
-    </div>
- 
-  </div>
+  <div class="signUp-heading">
+    <div class="signUp-text">Welcome to westPac </div>
+    <div class="form-container">
+      <form [formGroup]="signupform" class="form-group" (ngSubmit)="onClickSubmit()">
 
+        <label>User Name:</label>
+        <input type="text" formControlName="userName">
+        <div *ngIf = "formSubmitted && signupform.controls.userName.errors" class="invalid-field">
+          <div *ngIf = " signupform.controls.userName.errors.required">
+            User Name is Required
+          </div>
+          <div *ngIf = " signupform.controls.userName.errors.minlength">
+            User Name should contain atleast 6 characters
+          </div>
+          <div *ngIf = " signupform.controls.userName.errors.pattern">
+            User Name should be combination of characters and letters with characters at beginning
+          </div>
+        </div>
+        <br />
+
+        <label>password:</label>
+        <input type="password" formControlName="password">
+        <div *ngIf = "formSubmitted && signupform.controls.password.errors" class="invalid-field">
+          <div *ngIf = " signupform.controls.password.errors.required">
+            Password is Required
+          </div>
+          <div *ngIf = " signupform.controls.password.errors.minlength">
+            Atleast 6 characters
+          </div>
+        </div>
+        <br />
+
+        <label>Confirm password:</label>
+        <input type="password" #confirmPassword formControlName="confirmPassword">
+        <div *ngIf = "formSubmitted && signupform.controls.confirmPassword.errors" class="invalid-field">
+          <div *ngIf = " signupform.controls.confirmPassword.errors.required">
+            Password is Required
+          </div>
+          <div *ngIf = " signupform.controls.confirmPassword.errors.passwordMustMacth">
+            Passwords Must match
+          </div>
+        </div>
+        <br />
+        <button type="submit" value="submit" >Submit</button>
+
+      </form>
+    </div>
+  </div>
+</div>

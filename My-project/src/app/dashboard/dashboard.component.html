@@ -1,3 +1,11 @@
 <p>
   Welcome to dashboard {{userName}}!
 </p>
+<table>
+  <tr *ngFor = "let user of usersData" >
+  <td>My name is {{user.userName}} </td>
+    <td>Age:{{user.age}}</td>
+    <td>address:{{user.address}}</td>
+    <td>contact:{{user.contact}}</td>
+  </tr>
+  </table>

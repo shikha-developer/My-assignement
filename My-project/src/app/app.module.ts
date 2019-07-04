@@ -12,6 +12,7 @@ import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MymaterialModule } from './mymaterial.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -30,7 +31,8 @@ import { MymaterialModule } from './mymaterial.module';
     AppRoutingModule ,
     ReactiveFormsModule,
     BrowserAnimationsModule ,
-    MymaterialModule
+    MymaterialModule,
+    HttpClientModule
    
   ],
   providers: [OnlyLoggedInUsersGuard],

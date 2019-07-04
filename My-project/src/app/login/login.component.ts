@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   defaultName: String = "shikha";
   defaultPass: String = "test@1234";
   myform: FormGroup;
+  formSubmitted : boolean = false;
   constructor(
     private router: Router,
     private isUserLoggedInService: isUserLoggedInService,
@@ -32,14 +33,20 @@ export class LoginComponent implements OnInit {
 
   onClickSubmit() {
     let givenName: String = this.myform.controls.userName.value;
-    let givenPassword: String = this.myform.controls.password.value
-    if (givenName == this.defaultName && givenPassword == this.defaultPass) {
-      this.isUserLoggedInService.setUserloggedIn(true);
-      this.router.navigate(['/dashboard', givenName]);
+    let givenPassword: String = this.myform.controls.password.value;
+    this.formSubmitted = true;
+    if(this.myform.invalid){
+      return;
     }
-    else {
-      alert("Please enter valid credential");
-    }
+    else{
+      if(givenName == this.defaultName && givenPassword == this.defaultPass) {
+        this.isUserLoggedInService.setUserloggedIn(true);
+        this.router.navigate(['/dashboard', givenName]);
+      }
+      else {
+        alert("Please enter valid credential");
+      }
+    } 
   }
   onClickSignUp(){
     this.router.navigate(['/signup']);
