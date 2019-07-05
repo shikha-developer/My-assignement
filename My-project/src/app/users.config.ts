@@ -1,6 +1,6 @@
  export interface UserDetailsConfig {
     userName:String;
-    age: Number;
+    companyName: String;
     address: String ;
     contact: String ;
 }

@@ -1,11 +1,13 @@
-<p>
+<h1>
   Welcome to dashboard {{userName}}!
-</p>
+</h1>
+<div *ngIf = "clientsData">
+  <h4>You have following clients {{userName}}, Please click each to know the full details-</h4>
 <table>
-  <tr *ngFor = "let user of usersData" >
-  <td>My name is {{user.userName}} </td>
-    <td>Age:{{user.age}}</td>
-    <td>address:{{user.address}}</td>
-    <td>contact:{{user.contact}}</td>
+  <tr  (click) = "onUserClick(user)" *ngFor = "let user of clientsData" >
+  <td>{{user.userName}} </td>
   </tr>
   </table>
+  <app-client-details *ngIf = "client" [clientsData]= "client"></app-client-details> 
+</div>
+<div  *ngIf = "errorDetails">{{errorDetails}}</div>

@@ -4,15 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module'
 import { OnlyLoggedInUsersGuard } from './isLoggedInAuthGuard';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { MymaterialModule } from './mymaterial.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientDetailsComponent } from './dashboard/client-details/client-details.component';
 
 
 
@@ -23,15 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DashboardComponent,
     ErrorPageComponent,
-    SignUpComponent
+    SignUpComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule ,
     ReactiveFormsModule,
-    BrowserAnimationsModule ,
-    MymaterialModule,
     HttpClientModule
    
   ],
